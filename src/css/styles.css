@@ -1,0 +1,68 @@
+@import '~node_modules/modern-normalize/modern-normalize.css';
+
+body {
+    background-color: #6b99b6;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    border: 3px solid #0057b8;
+}
+
+.container {
+    padding: 15px;
+    max-width: 428px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media screen and (min-width: 768px) {
+    .container {
+        max-width: 768px;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .container {
+        max-width: 1158px;
+    }
+}
+.loader {
+    color: #ffd700;
+
+}
+
+.unvisible {
+    display: none;
+}
+
+.cat-info-desc-desc,
+.cat-info-desc-temp {
+    line-height: 150%;
+}
+
+.cat-info {
+    margin-top: 25px;
+    margin-bottom: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    color: #0057b8;
+}
+
+@media screen and (min-width: 768px) {
+    .cat-info {
+        flex-direction: row;
+    }
+}
+
+.cat-info-desc-title {
+    color: #ffd700;
+
+}
+
+.cat-info-desc-desc {
+    text-align: justify;
+}
