@@ -1,9 +1,8 @@
-import { fetchBreeds, fetchCatByBreed } from "./js/cat-api";
+import { fetchBreeds, fetchCatByBreed } from "./cat-api";
 import './styles.css';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import SlimSelect from 'slim-select'
 import 'slim-select/dist/slimselect.css';
-
 
 const ref = {
     selector: document.querySelector('.breed-select'),
@@ -23,32 +22,22 @@ fetchBreeds()
     data.forEach(element => {
         arrBreedsId.push({text: element.name, value: element.id});
     });
-    selector.innerHTML = markupOptions(arrBreedsId);
     new SlimSelect({
         select: selector,
-        settings: {},
+        data: arrBreedsId
     });
     })
-    .catch(onFetchError);
-
-function markupOptions(data) {
-    return data
-        .map(({ text, value }) =>`<option value=${value}>${text}</option>`)
-        .join('');
-    
-}
-
+.catch(onFetchError);
 
 selector.addEventListener('change', onSelectBreed);
 
 function onSelectBreed(event) {
-    
     loader.classList.replace('is-hidden', 'loader');
     selector.classList.add('is-hidden');
     divCatInfo.classList.add('is-hidden');
+
     const breedId = event.currentTarget.value;
     fetchCatByBreed(breedId)
-        
     .then(data => {
         loader.classList.replace('loader', 'is-hidden');
         selector.classList.remove('is-hidden');
